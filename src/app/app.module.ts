@@ -10,7 +10,7 @@ import { CoreModule } from './core/core.module';
     AppComponent
   ],
   imports: [
-    CoreModule,
+    CoreModule.forRoot(),
     BrowserModule,
     AppRoutingModule
   ],

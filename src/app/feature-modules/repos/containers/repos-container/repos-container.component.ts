@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
+
+import { AbstractContainerClass } from 'src/app/shared/components/abstract/abstract-container.class';
+import { ReposFacadeService } from '../../services/repos-facade.service';
 
 @Component({
   selector: 'app-repos-container',
@@ -6,6 +9,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./repos-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ReposContainerComponent {
-  constructor() { }
+export class ReposContainerComponent extends AbstractContainerClass {
+  repos$ = this.reposFacade.repos$;
+
+  constructor(vcr: ViewContainerRef, protected reposFacade: ReposFacadeService) {
+    super(vcr, reposFacade);
+    this.reposFacade.getRepos();
+  }
 }
