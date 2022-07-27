@@ -6,6 +6,7 @@ import { Repo } from 'src/app/core/api/model/repos/repo.interface';
 import { ReposResponse } from 'src/app/core/api/model/repos/repos-response.interface';
 import { GitHubApiService } from 'src/app/core/api/services/git-hub-api.service';
 import { AbstractFacadeClass } from 'src/app/shared/components/abstract/abstract-facade.class';
+import { ReposForm } from '../model/repos-form.interface';
 
 @Injectable()
 export class ReposFacadeService extends AbstractFacadeClass {
@@ -25,5 +26,9 @@ export class ReposFacadeService extends AbstractFacadeClass {
         console.log('getRepos', response);
         this.reposSubj$.next(response?.items || []);
       }));
+  }
+
+  searchRepos(reposForm: ReposForm) {
+    // TODO
   }
 }

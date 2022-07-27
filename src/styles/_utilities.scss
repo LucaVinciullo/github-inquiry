@@ -1,0 +1,32 @@
+@import "./variables";
+
+.top-spacing {
+  &-zero {
+    margin-top: 0;
+  }
+  &-s {
+    margin-top: $spacing-s;
+  }
+  &-m {
+    margin-top: $spacing-m;
+  }
+  &-l {
+    margin-top: $spacing-l;
+  }
+}
+
+
+.bottom-spacing {
+  &-zero {
+    margin-bottom: 0;
+  }
+  &-s {
+    margin-bottom: $spacing-s;
+  }
+  &-m {
+    margin-bottom: $spacing-m;
+  }
+  &-l {
+    margin-bottom: $spacing-l;
+  }
+}
