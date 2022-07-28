@@ -1,0 +1,24 @@
+@import "../../../../../styles/variables";
+
+:host {
+  .full-width {
+    width: 100%;
+  }
+
+  .avatar {
+    height: 24px;
+    width: 24px;
+  }
+
+  .mat-row:hover {
+    cursor: pointer;
+    &:hover {
+      background-color: rgba($color: $primary-color-deeppurple, $alpha: 0.2);
+    }
+  }
+
+  div.table-container {
+    max-height: 300px;
+    overflow: auto;
+  }
+}

@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {MatIconRegistry} from '@angular/material/icon';
-import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,10 @@ export class AppModule {
     this.matIconRegistry.addSvgIcon(
       'search-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/search-icon.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'chevron-right',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/chevron-right.svg')
     );
   }
 }

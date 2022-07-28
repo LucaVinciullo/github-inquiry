@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRadioModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule
   ],
   declarations: [
 
@@ -27,7 +29,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatRadioModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule
   ],
   providers: [{
     provide: MAT_RADIO_DEFAULT_OPTIONS,

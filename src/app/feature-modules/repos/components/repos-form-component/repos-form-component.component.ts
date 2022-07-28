@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewContainerRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewContainerRef} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-import { AbstractComponentClass } from 'src/app/shared/components/abstract/abstract-component.class';
-import { ReposForm } from '../../model/repos-form.interface';
+import {AbstractComponentClass} from 'src/app/shared/components/abstract/abstract-component.class';
+import {ReposForm} from '../../model/repos-form.interface';
 
 @Component({
   selector: 'app-repos-form-component',
@@ -19,9 +19,9 @@ export class ReposFormComponentComponent extends AbstractComponentClass implemen
     super(vcr);
     this.form = fb.group({
       searchBy: ['name', Validators.required],
-      name: ['luka', Validators.required],
-      language: ['javascript'],
-      stars: [3],
+      name: ['', Validators.required],
+      language: [''],
+      stars: [],
       issue: ['', Validators.required]
     });
     this.subscription.add(
