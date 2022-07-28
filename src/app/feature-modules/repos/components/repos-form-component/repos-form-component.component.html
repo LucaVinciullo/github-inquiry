@@ -3,7 +3,7 @@
     <mat-label class="radio-label"> Search by: </mat-label>
     <mat-radio-group aria-label="Ricerca per:" formControlName="searchBy">
       <mat-radio-button value="name"> Name</mat-radio-button>
-      <mat-radio-button value="issue"> Issue</mat-radio-button>
+      <mat-radio-button value="issue" [disabled]="true" matTooltip="TODO"> Issue</mat-radio-button>
     </mat-radio-group>
   </div>
   <div class="controls-container top-spacing-s">
@@ -25,7 +25,7 @@
       <mat-label>Issue title</mat-label>
       <input matInput formControlName="issue">
     </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="form.invalid">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="search()">
       Search
       <mat-icon aria-hidden="false" aria-label="search" [svgIcon]="'search-icon'"></mat-icon>
     </button>

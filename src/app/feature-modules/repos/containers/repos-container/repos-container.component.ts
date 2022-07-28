@@ -14,7 +14,6 @@ export class ReposContainerComponent extends AbstractContainerClass {
 
   constructor(vcr: ViewContainerRef, protected reposFacade: ReposFacadeService) {
     super(vcr, reposFacade);
-    this.reposFacade.getRepos();
   }
 
   searchRepos(reposForm: ReposForm) {

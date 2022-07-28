@@ -19,9 +19,9 @@ export class ReposFormComponentComponent extends AbstractComponentClass implemen
     super(vcr);
     this.form = fb.group({
       searchBy: ['name', Validators.required],
-      name: ['', Validators.required],
-      language: [''],
-      stars: [],
+      name: ['luka', Validators.required],
+      language: ['javascript'],
+      stars: [3],
       issue: ['', Validators.required]
     });
     this.subscription.add(
@@ -35,8 +35,11 @@ export class ReposFormComponentComponent extends AbstractComponentClass implemen
     this.enableControls(this.form.get('searchBy')?.value);
   }
 
+  search() {
+    this.searchEvent.emit(this.form.getRawValue());
+  }
+
   private enableControls(searchBy: 'name' | 'issue'): void {
-    console.log('enableControls', `searchBy: ${searchBy}`)
     const nameControls = ['name', 'language', 'stars'];
     if (searchBy === 'issue') {
       for (const name of nameControls) {
