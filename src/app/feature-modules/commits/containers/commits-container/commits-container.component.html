@@ -1,1 +1,35 @@
-<p>commits-container works!</p>
+<div class="bottom-spacing-m">
+  <button mat-raised-button color="primary" (click)="goBack()">
+    <mat-icon aria-hidden="false" aria-label="search" [svgIcon]="'chevron-left'"></mat-icon>
+    Go Back
+  </button>
+</div>
+<div>
+  <ng-container *ngIf="commits$ | async as commits">
+    <ng-container *ngIf="commits.length > 0; else noResults">
+      <table mat-table [dataSource]="commits" class="mat-elevation-z8 full-width">
+
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef> Author </th>
+          <td mat-cell *matCellDef="let element"> {{element?.author?.login}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="url">
+          <th mat-header-cell *matHeaderCellDef> Url </th>
+          <td mat-cell *matCellDef="let element" class="url-cell">
+            {{element?.url}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Message </th>
+          <td mat-cell *matCellDef="let element"> {{element?.commit?.message }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </ng-container>
+    <ng-template #noResults> The search produced no result. </ng-template>
+  </ng-container>
+</div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReposForm } from 'src/app/feature-modules/repos/model/repos-form.interface';
 import { HttpService } from '../../http/http.service';
+import {Commit} from '../model/commits/commit.interface';
 import { ReposResponse } from '../model/repos/repos-response.interface';
 
 const GIT_HUB_API_BASE_URL = 'https://api.github.com/';
@@ -16,6 +17,12 @@ export class GitHubApiService {
   getRepos(reposForm: ReposForm): Observable<ReposResponse> {
     // TODO params
     const params = this.retrieveReposParams(reposForm);
+    const url = `${GIT_HUB_API_BASE_URL}${params}`;
+    return this.httpService.get(url);
+  }
+
+  getCommits(owner: string, repo: string): Observable<Commit[]> {
+    const params = `repos/${owner}/${repo}/commits`;
     const url = `${GIT_HUB_API_BASE_URL}${params}`;
     return this.httpService.get(url);
   }

@@ -1,0 +1,13 @@
+@import "../../../../../styles/variables";
+
+:host {
+  td.mat-cell {
+    padding-top: $spacing-s;
+    max-width: 400px;
+    vertical-align: top;
+    &.url-cell{
+      line-break: anywhere;
+      padding: $spacing-s $spacing-xs 0 $spacing-xs;
+    }
+  }
+}

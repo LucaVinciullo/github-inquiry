@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
+import {Repo} from 'src/app/core/api/model/repos/repo.interface';
 
 import { AbstractContainerClass } from 'src/app/shared/components/abstract/abstract-container.class';
 import { ReposForm } from '../../model/repos-form.interface';
@@ -11,15 +12,21 @@ import { ReposFacadeService } from '../../services/repos-facade.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReposContainerComponent extends AbstractContainerClass {
-  repos$ = this.reposFacade.repos$;
+  flagClearStateOnDestroy = false;
+
+  repos$ = this.facade.repos$;
 
   readonly displayedColumns = ['avatarUrl', 'name', 'creationDate', 'action'];
 
-  constructor(vcr: ViewContainerRef, protected reposFacade: ReposFacadeService) {
-    super(vcr, reposFacade);
+  constructor(vcr: ViewContainerRef, protected override facade: ReposFacadeService) {
+    super(vcr, facade);
   }
 
   searchRepos(reposForm: ReposForm) {
-    this.reposFacade.searchRepos(reposForm);
+    this.facade.searchRepos(reposForm);
+  }
+
+  goToCommits(repo: Repo) {
+    this.facade.goToCommits(repo);
   }
 }

@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./feature-modules/repos/repos.module').then(m => m.ReposModule)
   },
   {
-    path: 'commits',
-    loadChildren: () => import('./feature-modules/commits/commits.module').then(m => m.CommitsModule)
-  },
-  {
     path: '**',
     redirectTo: ''
   }

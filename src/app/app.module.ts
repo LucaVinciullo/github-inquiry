@@ -33,5 +33,9 @@ export class AppModule {
       'chevron-right',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/chevron-right.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'chevron-left',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/chevron-left.svg')
+    );
   }
 }

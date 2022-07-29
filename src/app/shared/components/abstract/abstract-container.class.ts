@@ -8,12 +8,23 @@ import { AbstractFacadeClass } from './abstract-facade.class';
   template: ''
 })
 export abstract class AbstractContainerClass extends AbstractComponentClass implements OnDestroy {
+  /**
+   * If true, invokes methods in the facade service that clear subscriptions and reset observables
+   *
+   * @abstract
+   * @type {boolean}
+   */
+  abstract flagClearStateOnDestroy: boolean;
+
   constructor(vcr: ViewContainerRef, protected facade: AbstractFacadeClass) {
     super(vcr)
   }
 
   override ngOnDestroy() {
     super.ngOnDestroy();
-    this.facade.clearSubscription();
+    if (this.flagClearStateOnDestroy) {
+      this.facade.clearObservables();
+      this.facade.clearSubscription();
+    }
   }
 }

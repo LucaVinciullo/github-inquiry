@@ -9,6 +9,10 @@ const routes: Routes = [
     component: ReposContainerComponent
   },
   {
+    path: 'commits/:owner/:repo',
+    loadChildren: () => import('../commits/commits.module').then(m => m.CommitsModule)
+  },
+  {
     path: '**',
     redirectTo: '/repos'
   }
@@ -17,5 +21,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RepossRoutingModule {
+export class ReposRoutingModule {
 }

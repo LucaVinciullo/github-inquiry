@@ -1,0 +1,13 @@
+@import '../variables';
+
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding-left: $spacing-xs;
+  padding-right: $spacing-xs;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell:first-child {
+  padding-left: $spacing-s;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell:last-child {
+  padding-right: $spacing-s;
+}

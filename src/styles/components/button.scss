@@ -1,0 +1,12 @@
+@import '../variables';
+
+
+button.mat-raised-button {
+  min-height: 54px;
+
+  span.mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+  }
+}
