@@ -30,6 +30,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </ng-container>
-    <ng-template #noResults> The search produced no result. </ng-template>
+    <ng-template #noResults> There are no commits to show for {{owner}}/{{repo}}. </ng-template>
   </ng-container>
 </div>

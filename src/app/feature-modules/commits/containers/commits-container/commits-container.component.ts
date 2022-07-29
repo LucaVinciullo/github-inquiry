@@ -31,7 +31,6 @@ export class CommitsContainerComponent extends AbstractContainerClass implements
         const repo = params.get('repo');
         this.owner = owner;
         this.repo = repo;
-        console.log(owner, repo);
         if (owner && repo) {
           this.facade.searchCommits(owner, repo);
         }
