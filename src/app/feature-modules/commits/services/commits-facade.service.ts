@@ -17,7 +17,7 @@ export class CommitsFacadeService extends AbstractFacadeClass {
   }
 
   searchCommits(owner: string, repo: string) {
-    this.subscription.add(
+    this.subscription?.add(
       this.gitHubService.getCommits(owner, repo).subscribe((response: any) => {
         this.commitsSubj$.next(response || []);
       })

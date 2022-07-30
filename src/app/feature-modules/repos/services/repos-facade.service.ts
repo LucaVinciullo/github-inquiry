@@ -24,7 +24,7 @@ export class ReposFacadeService extends AbstractFacadeClass {
   searchRepos(reposForm: ReposForm) {
     /* Clear previous results */
     this.reposSubj$.next(null);
-    this.subscription.add(
+    this.subscription?.add(
       this.gitHubService.getRepos(reposForm).pipe(first()).subscribe((response: ReposResponse) => {
         this.reposSubj$.next(response?.items || []);
       })

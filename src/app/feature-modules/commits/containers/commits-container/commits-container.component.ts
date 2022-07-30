@@ -32,6 +32,8 @@ export class CommitsContainerComponent extends AbstractContainerClass implements
         this.repo = repo;
         if (owner && repo) {
           this.facade.searchCommits(owner, repo);
+        } else {
+          console.error(`Invalid parameters owner: ${String(owner)} and repository: ${String(repo)}`);
         }
       })
     );

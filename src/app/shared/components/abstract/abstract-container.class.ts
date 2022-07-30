@@ -19,7 +19,8 @@ export abstract class AbstractContainerClass extends AbstractComponentClass impl
   abstract flagClearStateOnDestroy: boolean;
 
   constructor(vcr: ViewContainerRef, protected facade: AbstractFacadeClass) {
-    super(vcr)
+    super(vcr);
+    this.facade.initSubscription();
   }
 
   override ngOnDestroy() {
