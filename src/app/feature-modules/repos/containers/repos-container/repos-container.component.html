@@ -1,4 +1,7 @@
-<app-repos-form-component (searchEvent)="searchRepos($event)"></app-repos-form-component>
+<app-repos-form-component
+[formData]="formData$ | async"
+(searchEvent)="searchRepos($event)"
+(saveFormDataEvent)="saveFormData($event)"></app-repos-form-component>
 
 <div class="table-container">
 

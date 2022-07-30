@@ -1,8 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, ViewContainerRef} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {
+  ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit,
+  Output, SimpleChanges, ViewContainerRef
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import {AbstractComponentClass} from 'src/app/shared/components/abstract/abstract-component.class';
-import {ReposForm} from '../../model/repos-form.interface';
+import { AbstractComponentClass } from 'src/app/shared/components/abstract/abstract-component.class';
+import { ReposForm } from '../../model/repos-form.interface';
 
 @Component({
   selector: 'app-repos-form-component',
@@ -10,10 +13,13 @@ import {ReposForm} from '../../model/repos-form.interface';
   styleUrls: ['./repos-form-component.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ReposFormComponentComponent extends AbstractComponentClass implements OnInit {
+export class ReposFormComponentComponent extends AbstractComponentClass implements OnInit, OnChanges, OnDestroy {
   form: FormGroup;
 
+  @Input() formData: ReposForm | null = null;
+
   @Output() searchEvent = new EventEmitter<ReposForm>();
+  @Output() saveFormDataEvent = new EventEmitter<ReposForm>();
 
   constructor(vcr: ViewContainerRef, private fb: FormBuilder, private cdr: ChangeDetectorRef) {
     super(vcr);
@@ -33,6 +39,20 @@ export class ReposFormComponentComponent extends AbstractComponentClass implemen
 
   ngOnInit(): void {
     this.enableControls(this.form.get('searchBy')?.value);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // eslint-disable-next-line dot-notation
+    const formData = changes['formData']?.currentValue;
+    if (formData) {
+      this.form.patchValue(formData);
+      this.cdr.markForCheck();
+    }
+  }
+
+  override ngOnDestroy(): void {
+    super.ngOnDestroy();
+    this.saveFormDataEvent.emit(this.form.getRawValue());
   }
 
   search() {

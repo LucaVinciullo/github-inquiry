@@ -15,6 +15,7 @@ export class ReposContainerComponent extends AbstractContainerClass {
   flagClearStateOnDestroy = false;
 
   repos$ = this.facade.repos$;
+  formData$ = this.facade.formData$;
 
   readonly displayedColumns = ['avatarUrl', 'name', 'creationDate', 'action'];
 
@@ -24,6 +25,10 @@ export class ReposContainerComponent extends AbstractContainerClass {
 
   searchRepos(reposForm: ReposForm) {
     this.facade.searchRepos(reposForm);
+  }
+
+  saveFormData(reposForm: ReposForm) {
+    this.facade.saveFormData(reposForm);
   }
 
   goToCommits(repo: Repo) {
