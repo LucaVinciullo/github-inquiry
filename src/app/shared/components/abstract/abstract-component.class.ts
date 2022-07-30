@@ -1,4 +1,3 @@
-// tslint:disable:incoherent-file-name
 import { Component, OnDestroy, ViewContainerRef } from '@angular/core';
 
 import { Subscription } from 'rxjs';

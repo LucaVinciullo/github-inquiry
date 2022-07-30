@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {BehaviorSubject, Observable} from 'rxjs';
-import {first} from 'rxjs/operators';
-import {Repo} from 'src/app/core/api/model/repos/repo.interface';
-import {ReposResponse} from 'src/app/core/api/model/repos/repos-response.interface';
-import {GitHubApiService} from 'src/app/core/api/services/git-hub-api.service';
-import {LoaderService} from 'src/app/core/loader/services/loader.service';
-import {AbstractFacadeClass} from 'src/app/shared/components/abstract/abstract-facade.class';
-import {ReposForm} from '../model/repos-form.interface';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Repo } from 'src/app/core/api/model/repos/repo.interface';
+import { ReposResponse } from 'src/app/core/api/model/repos/repos-response.interface';
+import { GitHubApiService } from 'src/app/core/api/services/git-hub-api.service';
+import { LoaderService } from 'src/app/core/loader/services/loader.service';
+import { AbstractFacadeClass } from 'src/app/shared/components/abstract/abstract-facade.class';
+import { ReposForm } from '../model/repos-form.interface';
 
 @Injectable()
 export class ReposFacadeService extends AbstractFacadeClass {
