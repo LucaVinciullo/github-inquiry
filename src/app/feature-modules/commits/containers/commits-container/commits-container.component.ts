@@ -9,15 +9,14 @@ import { CommitsFacadeService } from '../../services/commits-facade.service';
   templateUrl: './commits-container.component.html',
   styleUrls: ['./commits-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
-
 })
 export class CommitsContainerComponent extends AbstractContainerClass implements OnInit {
   readonly displayedColumns = ['author', 'url', 'message'];
 
   flagClearStateOnDestroy = true;
-
   owner: string | null | undefined;
   repo: string | null | undefined;
+
   commits$ = this.facade.commits$;
 
   constructor(vcr: ViewContainerRef, protected override facade: CommitsFacadeService, private route: ActivatedRoute) {

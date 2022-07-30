@@ -8,6 +8,8 @@ import { AbstractFacadeClass } from './abstract-facade.class';
   template: ''
 })
 export abstract class AbstractContainerClass extends AbstractComponentClass implements OnDestroy {
+  flagHideLoader$ = this.facade.flagHideLoader$;
+
   /**
    * If true, invokes methods in the facade service that clear subscriptions and reset observables
    *

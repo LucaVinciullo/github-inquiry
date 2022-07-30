@@ -1,21 +1,22 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {Observable, Subject} from 'rxjs';
-import {first} from 'rxjs/operators';
-import {Repo} from 'src/app/core/api/model/repos/repo.interface';
-import {ReposResponse} from 'src/app/core/api/model/repos/repos-response.interface';
-import {GitHubApiService} from 'src/app/core/api/services/git-hub-api.service';
-import {AbstractFacadeClass} from 'src/app/shared/components/abstract/abstract-facade.class';
-import {ReposForm} from '../model/repos-form.interface';
+import { Observable, Subject } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Repo } from 'src/app/core/api/model/repos/repo.interface';
+import { ReposResponse } from 'src/app/core/api/model/repos/repos-response.interface';
+import { GitHubApiService } from 'src/app/core/api/services/git-hub-api.service';
+import { LoaderService } from 'src/app/core/loader/services/loader.service';
+import { AbstractFacadeClass } from 'src/app/shared/components/abstract/abstract-facade.class';
+import { ReposForm } from '../model/repos-form.interface';
 
 @Injectable()
 export class ReposFacadeService extends AbstractFacadeClass {
   private reposSubj$ = new Subject<Repo[] | null>();
   repos$: Observable<unknown & Repo[] | null> = this.reposSubj$.asObservable();
 
-  constructor(private gitHubService: GitHubApiService, private router: Router) {
-    super();
+  constructor(private gitHubService: GitHubApiService, protected override loaderService: LoaderService, private router: Router) {
+    super(loaderService);
   }
 
   searchRepos(reposForm: ReposForm) {

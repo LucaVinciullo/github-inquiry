@@ -1,11 +1,11 @@
-<div class="bottom-spacing-m">
-  <button mat-raised-button color="primary" (click)="goBack()">
-    <mat-icon aria-hidden="false" aria-label="search" [svgIcon]="'chevron-left'"></mat-icon>
-    Go Back
-  </button>
-</div>
-<div>
-  <ng-container *ngIf="commits$ | async as commits">
+<ng-container *ngIf="commits$ | async as commits">
+  <div class="bottom-spacing-m">
+    <button mat-raised-button color="primary" (click)="goBack()">
+      <mat-icon aria-hidden="false" aria-label="search" [svgIcon]="'chevron-left'"></mat-icon>
+      Go Back
+    </button>
+  </div>
+  <div>
     <ng-container *ngIf="commits.length > 0; else noResults">
       <table mat-table [dataSource]="commits" class="mat-elevation-z8 full-width">
 
@@ -31,5 +31,5 @@
       </table>
     </ng-container>
     <ng-template #noResults> There are no commits to show for {{owner}}/{{repo}}. </ng-template>
-  </ng-container>
-</div>
+  </div>
+</ng-container>

@@ -7,6 +7,7 @@ import { GitHubApiService } from './api/services/git-hub-api.service';
 import { HttpRequestInterceptorService } from './http/http-request-interceptor';
 import { HttpResponseInterceptorService } from './http/http-response-interceptor';
 import { HttpService } from './http/http.service';
+import {LoaderService} from './loader/services/loader.service';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ export class CoreModule {
       providers: [
         HttpService,
         GitHubApiService,
+        LoaderService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: HttpRequestInterceptorService,

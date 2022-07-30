@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, ViewContainerRef } from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewContainerRef} from '@angular/core';
 import {Repo} from 'src/app/core/api/model/repos/repo.interface';
 
-import { AbstractContainerClass } from 'src/app/shared/components/abstract/abstract-container.class';
-import { ReposForm } from '../../model/repos-form.interface';
-import { ReposFacadeService } from '../../services/repos-facade.service';
+import {AbstractContainerClass} from 'src/app/shared/components/abstract/abstract-container.class';
+import {ReposForm} from '../../model/repos-form.interface';
+import {ReposFacadeService} from '../../services/repos-facade.service';
 
 @Component({
   selector: 'app-repos-container',

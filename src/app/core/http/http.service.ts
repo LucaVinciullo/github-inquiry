@@ -1,12 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { catchError, finalize, map } from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {catchError, finalize, map} from 'rxjs/operators';
+import {LoaderService} from '../loader/services/loader.service';
 
 @Injectable()
 export class HttpService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loaderService: LoaderService) { }
 
   get(url: string): Observable<any> {
     this.initLoading();
@@ -27,11 +28,11 @@ export class HttpService {
   }
 
   private initLoading() {
-    // TODO
+    this.loaderService.incrementLoaderCounter();
   }
 
   private stopLoading() {
-    // TODO
+    this.loaderService.decrementLoaderCounter();
   }
 
   private logPerformance() {

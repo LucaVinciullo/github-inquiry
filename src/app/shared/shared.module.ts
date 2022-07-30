@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   imports: [
@@ -17,10 +19,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
-
+    LoaderComponent
   ],
   exports: [
     CommonModule,
@@ -30,7 +33,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule,
+    LoaderComponent
   ],
   providers: [{
     provide: MAT_RADIO_DEFAULT_OPTIONS,
