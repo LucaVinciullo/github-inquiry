@@ -1,6 +1,6 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit,
-  Output, SimpleChanges, ViewContainerRef
+  ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnChanges, OnDestroy,
+  OnInit, Output, SimpleChanges, ViewContainerRef
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -20,6 +20,13 @@ export class ReposFormComponentComponent extends AbstractComponentClass implemen
 
   @Output() searchEvent = new EventEmitter<ReposForm>();
   @Output() saveFormDataEvent = new EventEmitter<ReposForm>();
+
+  @HostListener('keydown', ['$event.target'])
+  onkeydown(event: KeyboardEvent) {
+    if (event.key === 'ENTER' && this.form.valid) {
+      this.search();
+    }
+  }
 
   constructor(vcr: ViewContainerRef, private fb: FormBuilder, private cdr: ChangeDetectorRef) {
     super(vcr);
